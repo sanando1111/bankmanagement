@@ -1,0 +1,19 @@
+<div class="container">
+    <h1>Apply Loan Module</h1>
+        
+    <form [formGroup]="form" (ngSubmit)="submit()">
+           
+        <div class="form-group">
+            <label>Loan Type:</label>
+            <select formControlName="loanType" class="form-control">
+                <option disabled>Select Type</option>
+                <option value="personal">Personal</option>
+                <option value="housing">Housing</option>
+                <option value="educational">Educational</option>
+            </select>
+            
+        </div>
+       
+        <button class="btn btn-primary" type="submit" >Submit</button>
+    </form>
+</div>
