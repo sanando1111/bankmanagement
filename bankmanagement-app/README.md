@@ -3,10 +3,10 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
 
 ## Commands that ran as a prequisite
- ng new bankmanagement-app
- ng add @angular/material  (this is to use the matDatePicker)
- ng g c applyloan
-  mkdir shared
+ 1.ng new bankmanagement-app
+ 2.ng add @angular/material  (this is to use the matDatePicker)
+ 3.ng g c applyloan
+ 4. mkdir shared
 
 ## Development server
 
