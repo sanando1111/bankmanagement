@@ -1,4 +1,4 @@
-# bankmanagement
+# Bank Management System
 This repository will be used for designing the bank management system.
 
 This will have below functionality
