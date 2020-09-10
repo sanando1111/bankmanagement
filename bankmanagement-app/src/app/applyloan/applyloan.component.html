@@ -1,19 +1,121 @@
 <div class="container">
     <h1>Apply Loan Module</h1>
         
-    <form [formGroup]="form" (ngSubmit)="submit()">
-           
+    <form [formGroup]="form" (ngSubmit)="submit()">         
         <div class="form-group">
             <label>Loan Type:</label>
-            <select formControlName="loanType" class="form-control">
+            <select formControlName="loanType" class="form-control" (change)="onOptionsSelected(form.get('loanType').value)">
                 <option disabled>Select Type</option>
                 <option value="personal">Personal</option>
                 <option value="housing">Housing</option>
                 <option value="educational">Educational</option>
             </select>
-            
+            <br/>
+            <label>Loan Amount:</label>
+            <input type="text" formControlName="loanAmount">
+        
+            <br/>
+            <label>Loan Apply date:</label>
+            <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [min]="minDate" [matDatepicker]="applyDate" [attr.disabled]="true" formControlName="applyDate">
+            <mat-datepicker-toggle matSuffix [for]="applyDate"></mat-datepicker-toggle>
+            <mat-datepicker #applyDate [attr.disabled]="false"></mat-datepicker>
+          </mat-form-field>
+
+          <label>Loan Issue date:</label>
+            <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="issueDate" [attr.disabled]="true" formControlName="issueDate">
+            <mat-datepicker-toggle matSuffix [for]="issueDate"></mat-datepicker-toggle>
+            <mat-datepicker #issueDate [attr.disabled]="false"></mat-datepicker>
+          </mat-form-field>
+
+          <br/>
+          <label>Rate of Interest:</label>
+          <input type="text" formControlName="rateOfInterest" value={{roi}}>
+        
+          <br/>
+
+             <label>Duration Of the Loan:</label>
+            <select formControlName="loanDuration" class="form-control">
+                <option disabled>Select Duration</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+            </select>
         </div>
-       
+
+        <div>
+            <ng-container *ngIf="form.get('loanType').value==='educational'">
+
+                <div>
+                    <h2>Please enter your {{form.get('loanType').value}} loan details</h2> 
+                </div>
+                <div>
+                    <label>Course fee:</label>
+                    <input type="text" formControlName="courseFee">
+                    <br/>
+                    <label>Course:</label>
+                  <select formControlName="courseName" class="form-control">
+                <option disabled>Course Name</option>
+                <option value="be">B.E</option>
+                <option value="btech">B.Tech</option>
+            </select>
+            <br/>
+            <label>Father name:</label>
+                    <input type="text" formControlName="fatherName">
+                    <br/>
+                    <label>Father's occupation:</label>
+                  <select formControlName="occupation" class="form-control">
+                <option disabled>select one</option>
+                <option value="service">Service</option>
+                <option value="oth">Other</option>
+            </select>
+            <br/>
+            <label>Father's total experience(in years):</label>
+                    <input type="text" formControlName="totalExperience">
+                    <br/>
+               <label>Father's experience with current company(in years):</label>
+                    <input type="text" formControlName="experiencewithCurrentCompany">
+                    <br/>
+                    <label>Ration Card:</label>
+                         <input type="text" formControlName="rationCard">
+                         <br/>
+                         <label>Annual Income:</label>
+                         <input type="text" formControlName="annualIncome">
+                </div>
+            </ng-container>
+        </div>
+        <div>
+            <ng-container *ngIf="form.get('loanType').touched && form.get('loanType').value==='personal'||form.get('loanType').value==='housing'">
+
+                <div>
+                   <h2>Please enter your {{form.get('loanType').value}} loan details</h2> 
+                </div>
+                <div>
+                    <label>Annual Income:</label>
+                    <input type="text" formControlName="annualIncome">
+                    <br/>
+                    <label>Company Name:</label>
+                    <input type="text" formControlName="companyName">
+                    <br/>
+
+                    <label>Designation:</label>
+                    <input type="text" formControlName="designation">
+                    <br/>
+
+                    <label>Total Experience:</label>
+                    <input type="text" formControlName="ytotalExperience">
+                    <br/>
+                   
+                    <label>Experience with current company(in years):</label>
+                    <input type="text" formControlName="yexperiencewithCurrentCompany">
+                    <br/>
+                </div>
+            </ng-container>
+        </div>
         <button class="btn btn-primary" type="submit" >Submit</button>
     </form>
 </div>
