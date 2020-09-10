@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import {ApplyLoanService} from  '../apply-loan.service';
 import { filter, map } from 'rxjs/operators';
+import {LoginService} from  '../login.service';
 
 @Component({
   selector: 'app-applyloan',
@@ -13,7 +14,7 @@ export class ApplyloanComponent implements OnInit {
   response:any;
   roi:any;
   
-  constructor( private loanService:ApplyLoanService) {
+  constructor( private loanService:ApplyLoanService,private loginService:LoginService) {
 
     this.minDate = new Date();
    }
@@ -25,6 +26,8 @@ export class ApplyloanComponent implements OnInit {
      //this.display();
      //this.getInterestRates("personal");
      //console.log(this.roi);
+    console.log(this.loginService.getAccountHolderName());
+    console.log(this.loginService.getInitialDeposit());
      
   }
 
@@ -41,7 +44,7 @@ export class ApplyloanComponent implements OnInit {
     });
 
       this.roi=this.response.find(e=>e.type==loanType).rate;
-      console.log(this.roi);
+      //console.log(this.roi);
 
   }
 
