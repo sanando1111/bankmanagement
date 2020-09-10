@@ -7,6 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
  2.ng add @angular/material  (this is to use the matDatePicker)
  3.ng g c applyloan
  4. mkdir shared
+ 5.npm install --save ngx-webstorage
 
 ## Development server
 
