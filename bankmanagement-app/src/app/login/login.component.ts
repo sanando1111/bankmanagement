@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   }
 
    onRegisterCustomer(): void {
-    //this.router.navigate(['register']);
+    this.router.navigate(['register']);
    }
 
 }

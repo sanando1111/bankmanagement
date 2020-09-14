@@ -5,6 +5,7 @@ import { ApplyloanComponent } from './applyloan/applyloan.component';
 import { HomeComponent } from './home/home.component';
 import { ViewCustomerComponent } from './view-customer/view-customer.component';
 import { UpdateCustomerComponent } from './update-customer/update-customer.component';
+import { RegisterCustomerComponent } from './register-customer/register-customer.component';
 
 //const routes: Routes = [];
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'home/:id', component: HomeComponent},
   { path: 'applyloan/:id', component: ApplyloanComponent},
   { path: 'view/:id', component: ViewCustomerComponent },
-  { path: 'update/:id', component: UpdateCustomerComponent }
+  { path: 'update/:id', component: UpdateCustomerComponent },
+  { path: 'register', component: RegisterCustomerComponent }
   
   
 ];
