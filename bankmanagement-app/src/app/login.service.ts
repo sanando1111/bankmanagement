@@ -18,45 +18,103 @@ export class LoginService {
 
   customers: Customer[] = [
     {
-      'id': 1,
-      'username': 'Aritra',
-      'password': 'Chaterjee',
-      'intialdeposit': 100,
-      'accountholderName': 'Aritra Chaterjee'
+      customerId: 'R-100',
+      name: 'AC',
+      username: 'Aritra',
+      password: 'Chatterjee',
+      guardianType: null,
+      guardianName: null,
+      address: 'PlotNo-1, First Main Road, Salt Lake Calcutta',
+      citizenship: 'Indian',
+      state: 'West Bangal',
+      country: 'India',
+      email: 'ac@abc.com',
+      gender: 'Male',
+      maritalStatus: 'Single',
+      contactNumber: '1111',
+      dateOfBirth: null,
+      dateOfRegistration: null,
+      accountNumber: 1234567899876543,
+      accountType: null,
+      bankName : 'SBI',
+      branchName: 'Rajpath Branch',
+      citizenStatus: 'Resident',
+      initialDepositAmount: 500.25,
+      idProoType: 'Aadhar Card',
+      idDocumentNumber: 1111,
+      refAccHolderName: null,
+      refAccHolderAccNo: null,
+      refAccHolderAddress: null
     },
     {
-      'id': 2,
-      'username': 'Sanando',
-      'password': 'Chakraborty',
-      'intialdeposit': 200,
-      'accountholderName': 'Sanando Chakraborty'
-
+      customerId: 'R-200',
+      name: 'SC',
+      username: 'Sanando',
+      password: 'Chakraborty',
+      guardianType: null,
+      guardianName: null,
+      address: 'PlotNo-1, First Main Road, Salt Lake Calcutta',
+      citizenship: 'Indian',
+      state: 'West Bangal',
+      country: 'India',
+      email: 'ac@abc.com',
+      gender: 'Male',
+      maritalStatus: 'Single',
+      contactNumber: '1111',
+      dateOfBirth: null,
+      dateOfRegistration: null,
+      accountNumber: 1234567899876543,
+      accountType: null,
+      bankName : 'SBI',
+      branchName: 'Rajpath Branch',
+      citizenStatus: 'Resident',
+      initialDepositAmount: 600.25,
+      idProoType: 'Aadhar Card',
+      idDocumentNumber: 1111,
+      refAccHolderName: null,
+      refAccHolderAccNo: null,
+      refAccHolderAddress: null
     },
     {
-      'id': 3,
-      'username': 'sailesh',
-      'password': 'gor',
-      'intialdeposit': 300,
-      'accountholderName': 'Sailesh Gor'
-    },
-
-  ]
-
-
-
-  validateLogin(customer: Customer): any {
-    // in real time there will be separate service call to the given service URL    
-    console.log("we are in validateLogin unction");
-    var retVal = false;
-    for (let c of this.customers) {
-      if (c.username == customer.username && c.password == customer.password) {
-        //Below two variables are used in applyloan module section and must be shared once the user logged in
-        this.accountHolderName = c.accountholderName;
-        this.initialDeposit = c.intialdeposit;
-        return true;
-      }
+      customerId: 'R-300',
+      name: 'SG',
+      username: 'sailesh',
+      password: 'gor',
+      guardianType: null,
+      guardianName: null,
+      address: 'PlotNo-1, First Main Road, Salt Lake Calcutta',
+      citizenship: 'Indian',
+      state: 'West Bangal',
+      country: 'India',
+      email: 'ac@abc.com',
+      gender: 'Male',
+      maritalStatus: 'Single',
+      contactNumber: '1111',
+      dateOfBirth: null,
+      dateOfRegistration: null,
+      accountNumber: 1234567899876543,
+      accountType: null,
+      bankName : 'SBI',
+      branchName: 'Rajpath Branch',
+      citizenStatus: 'Resident',
+      initialDepositAmount: 500.25,
+      idProoType: 'Aadhar Card',
+      idDocumentNumber: 1111,
+      refAccHolderName: null,
+      refAccHolderAccNo: null,
+      refAccHolderAddress: null
     }
-    return retVal;
+  ];
+
+
+
+  validateLogin(customer: Customer): Customer {
+    // in real time there will be separate service call to the given service URL
+    console.log('we are in validateLogin Function');
+    for (const c of this.customers) {
+      if (c.username === customer.username && c.password === customer.password) { return c; }
+    }
+    return null;
   }
   getInitialDeposit()
   {
@@ -66,5 +124,22 @@ export class LoginService {
   getAccountHolderName()
   {
     return this.accountHolderName;
+  }
+
+  getCustomerById(id: string): Customer {
+    console.log('Inside getCustomerById: ' + id);
+    console.log('Customer: ' + this.customers[0].customerId);
+    // tslint:disable-next-line:prefer-const
+    for (let cust  of this.customers) {
+      if (id == cust.customerId) {
+        console.log('Inside username : ' + cust.username);
+        return cust;
+      }
+    }
+    return null;
+  }
+
+  getCustomerCount(): number {
+    return this.customers.length;
   }
 }

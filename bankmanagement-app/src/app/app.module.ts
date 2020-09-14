@@ -19,14 +19,21 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import {MatNativeDateModule} from '@angular/material/core';
-
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+import { ViewCustomerComponent } from './view-customer/view-customer.component';
+import { UpdateCustomerComponent } from './update-customer/update-customer.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ApplyloanComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
+    ViewCustomerComponent,
+    UpdateCustomerComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +43,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatInputModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatCheckboxModule, MatDatepickerModule, MatRadioModule, MatSelectModule,
     MatNativeDateModule,
-    HttpClientModule
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
