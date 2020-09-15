@@ -13,7 +13,7 @@ import { validateVerticalPosition } from '@angular/cdk/overlay';
   styleUrls: ['./applyloan.component.css']
 })
 export class ApplyloanComponent implements OnInit {
-  minDate: Date;
+  //minDate: Date;
   response: any;
   roi: any;
   initialDeposit: number;
@@ -21,22 +21,22 @@ export class ApplyloanComponent implements OnInit {
   id: string;
   customer: Customer;
   issueDate:any;
+  minDate:string;
+  
 
   constructor(private loanService: ApplyLoanService, private loginService: LoginService,private route: ActivatedRoute, private router: Router) {
 
-    this.minDate = new Date();
+    var now = new Date();
+    this.minDate= now.toISOString().substring(0,10);
+    //document.getElementById("form.issueDate").setAttribute("minDate", now.toISOString().substring(0,10));
+    //console.log(minDate)
 
   }
 
   ngOnInit(): void {
 
 
-
-    //console.log(this.response);
-    //this.display();
-    //this.getInterestRates("personal");
-    //console.log(this.roi);
-    
+     
     this.id = this.route.snapshot.params['id'];
     console.log('Id value:'+this.id);
     this.customer = this.loginService.getCustomerById(this.id);
@@ -98,12 +98,17 @@ export class ApplyloanComponent implements OnInit {
     //     delete formValue[prop];
     //   }
     // }
-    console.log(formValue);
-    console.log(this.form.valid);
+    
     // Math.random should be unique because of its seeding algorithm.
     // Convert it to base 36 (numbers + letters), and grab the first 9 characters
     // after the decimal.
-    this.generateAlert();
+    if(this.form.valid)
+    {
+      console.log(formValue);
+    console.log(this.form.valid);
+      this.generateAlert();
+    }
+    
 
   }
 
