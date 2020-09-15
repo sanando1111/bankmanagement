@@ -6,6 +6,7 @@ import { LoginService } from '../login.service';
 import { MatCardModule } from '@angular/material/card';
 import { Customer } from '../customer';
 import { ActivatedRoute, Router } from '@angular/router';
+import { validateVerticalPosition } from '@angular/cdk/overlay';
 @Component({
   selector: 'app-applyloan',
   templateUrl: './applyloan.component.html',
@@ -19,6 +20,7 @@ export class ApplyloanComponent implements OnInit {
   accountHolderName: string;
   id: string;
   customer: Customer;
+  issueDate:any;
 
   constructor(private loanService: ApplyLoanService, private loginService: LoginService,private route: ActivatedRoute, private router: Router) {
 
@@ -68,13 +70,13 @@ export class ApplyloanComponent implements OnInit {
     'loanAmount': new FormControl('', Validators.required),
     'rateOfInterest': new FormControl({ value: '', disabled: true }, Validators.required),
     'loanDuration': new FormControl('', Validators.required),
-    'applyDate': new FormControl('',),
-    'issueDate': new FormControl('', []),
-    'courseFee': new FormControl('',),
-    'courseName': new FormControl('',),
-    'annualIncome': new FormControl('',),
-    'companyName': new FormControl('',),
-    'fatherName': new FormControl('',),
+    'applyDate': new FormControl('',Validators.required),
+    'issueDate': new FormControl('', Validators.required),
+    'courseFee': new FormControl('',Validators.required),
+    'courseName': new FormControl('',Validators.required),
+    'annualIncome': new FormControl('',Validators.required),
+    'companyName': new FormControl('',Validators.required),
+    'fatherName': new FormControl('',Validators.required),
     'occupation': new FormControl('',),
     'designation': new FormControl('',),
     'ytotalExperience': new FormControl('',),
