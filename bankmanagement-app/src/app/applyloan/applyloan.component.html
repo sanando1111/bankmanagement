@@ -9,38 +9,22 @@
                 <option value="housing">Housing</option>
                 <option value="educational">Educational</option>
             </select>
-            <!-- <div *ngIf="form.controls.loanType.invalid"
-            class="alert alert-danger"> -->
             <mat-error *ngIf="form.get('loanType').hasError('required')">
-                <small>Loan type is <strong>required.</strong></small> 
+                <small class="error"> *Loan type is required.</small> 
           </mat-error>
-            
-           <!-- <div *ngIf="form.get('loanType').hasError('required')" class="alert alert-danger">
-             <small>Loan type is Required.</small> 
-           </div> -->
-           <!-- </div> -->
+
             <br/>
             <label>Loan Amount:</label>
             <input type="text" formControlName="loanAmount" name="loanAmount" >
             <mat-error *ngIf="form.get('loanAmount').hasError('required')">
-                <small>Loan amount is <strong>required.</strong></small> 
+                <small class="error"> *Loan amount is required.</small> 
           </mat-error>
             <br/>          
           <label>Loan Issue date:</label>
-
-            <!-- <mat-form-field appearance="none" >
-            <input matInput [min]="minDate" [matDatepicker]="issueDate" disabled>
-            <mat-datepicker-toggle matSuffix [for]="issueDate"></mat-datepicker-toggle>
-            <mat-datepicker #issueDate disabled="false"></mat-datepicker>
-          </mat-form-field>  -->
-
-          <!-- <input matInput [matDatepicker]="issueDate" placeholder="Choose a date">
-    <mat-datepicker-toggle matSuffix [for]="issueDate"></mat-datepicker-toggle>
-  <mat-datepicker #issueDate></mat-datepicker> -->
     <input name="issueDate" type="date" formControlName="issueDate" [min]="minDate"/>
          
           <mat-error *ngIf="form.get('issueDate').hasError('required')">
-            <small>Loan issue date <strong>required.</strong></small>
+            <small class="error"> *Loan issue date is required.</small>             
           </mat-error>
 
           <br/>
@@ -57,21 +41,17 @@
                 <option value="20">20</option>
             </select>
             <mat-error *ngIf="form.get('loanDuration').hasError('required')">
-                <small>Loan duration is <strong>required.</strong></small> 
+                <small class="error"> *Loan duration is required.</small> 
           </mat-error>
 
 
             <div>
-                <ng-container *ngIf="form.get('loanType').value==='educational'" class="form-control">
-    
-                    <!-- <div>
-                        <h3>Please enter your {{form.get('loanType').value}} loan details</h3> 
-                    </div> -->
+                <ng-container *ngIf="form.get('loanType').value==='educational'" class="form-control"> 
                     <div>
                         <label>Course fee:</label>
                         <input type="text" formControlName="courseFee"  >
                         <mat-error *ngIf="form.get('courseFee').hasError('required')">
-                            <small>Course fee is <strong>required.</strong></small> 
+                            <small class="error"> *Course fee is required.</small>                           
                       </mat-error>
                         <br/>
                         <label>Course:</label>
@@ -81,13 +61,13 @@
                     <option value="btech">B.Tech</option>
                 </select>
                 <mat-error *ngIf="form.get('courseName').hasError('required')">
-                    <small>Course name is <strong>required.</strong></small> 
+                    <small class="error"> *Course name is required.</small>
               </mat-error>
                 <br/>
                 <label>Father name:</label>
                         <input type="text" formControlName="fatherName" >
                         <mat-error *ngIf="form.get('fatherName').hasError('required')">
-                            <small>Father name is <strong>required.</strong></small> 
+                            <small class="error"> *Father name is required.</small>
                       </mat-error>
                         <br/>
                     </div>
@@ -98,21 +78,22 @@
         
         <div>
             <ng-container *ngIf="form.get('loanType').touched && form.get('loanType').value==='personal'||form.get('loanType').value==='housing'">
-
-                <!-- <div>
-                   <h2>Please enter your {{form.get('loanType').value}} loan details</h2> 
-                </div> -->
                 <div>
                     <label>Annual Income:</label>
                     <input type="text" formControlName="annualIncome" required >
+                    <mat-error *ngIf="form.get('annualIncome').hasError('required')">
+                      <small class="error"> *Annual is required.</small>
+                </mat-error>
                     <br/>
                     <label>Company Name:</label>
                     <input type="text" formControlName="companyName" required >
+                    <mat-error *ngIf="form.get('companyName').hasError('required')">
+                      <small class="error"> *Company name is required.</small>
+                </mat-error>
                     <br/>       
                 </div>
             </ng-container>
         </div>
-        <!-- <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Submit</button> -->
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <button type="submit">Submit</button>
     </form>
 </div>

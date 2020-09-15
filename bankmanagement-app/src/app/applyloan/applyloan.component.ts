@@ -70,20 +70,12 @@ export class ApplyloanComponent implements OnInit {
     'loanAmount': new FormControl('', Validators.required),
     'rateOfInterest': new FormControl({ value: '', disabled: true }, Validators.required),
     'loanDuration': new FormControl('', Validators.required),
-    'applyDate': new FormControl('',Validators.required),
     'issueDate': new FormControl('', Validators.required),
     'courseFee': new FormControl('',Validators.required),
     'courseName': new FormControl('',Validators.required),
     'annualIncome': new FormControl('',Validators.required),
     'companyName': new FormControl('',Validators.required),
-    'fatherName': new FormControl('',Validators.required),
-    'occupation': new FormControl('',),
-    'designation': new FormControl('',),
-    'ytotalExperience': new FormControl('',),
-    'yexperiencewithCurrentCompany': new FormControl('',),
-    'totalExperience': new FormControl('',),
-    'experiencewithCurrentCompany': new FormControl('',),
-    'rationCard': new FormControl('',)
+    'fatherName': new FormControl('',Validators.required)
     //'picker':new FormControl('',Validators.required)
   });
   
@@ -93,21 +85,19 @@ export class ApplyloanComponent implements OnInit {
 
     let formValue = { ...this.form.value };
 
-    //   for (let prop in formValue) {
-    //   if (!formValue[prop]) {
-    //     delete formValue[prop];
-    //   }
-    // }
+      for (let prop in formValue) {
+      if (!formValue[prop]) {
+      delete formValue[prop];
+      }
+     }
     
     // Math.random should be unique because of its seeding algorithm.
     // Convert it to base 36 (numbers + letters), and grab the first 9 characters
     // after the decimal.
-    if(this.form.valid)
-    {
       console.log(formValue);
-    console.log(this.form.valid);
+      console.log(this.form.valid);
       this.generateAlert();
-    }
+    
     
 
   }

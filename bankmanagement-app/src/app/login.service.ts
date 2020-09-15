@@ -42,9 +42,9 @@ export class LoginService {
       gender: 'Male',
       maritalStatus: 'Single',
       contactNumber: '1111',
-      dateOfBirth: null,
+      dateOfBirth: new Date(Date.now()),
       accountNumber: 1234567899876543,
-      accountType: null,
+      accountType: "Salary",
       initialDepositAmount: 600.25
     },
     {

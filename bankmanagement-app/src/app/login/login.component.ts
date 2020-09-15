@@ -27,7 +27,8 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['home', retCustomer.customerId]);
     } else {
       // Error message invalid user.
-      console.log(' Invalid user ');
+      //console.log(' Invalid user ');
+      alert('Invalid credential');
     }
     return;
   }
@@ -35,5 +36,7 @@ export class LoginComponent implements OnInit {
    onRegisterCustomer(): void {
     this.router.navigate(['register']);
    }
+
+   
 
 }
