@@ -20,8 +20,13 @@ export class UpdateCustomerComponent implements OnInit {
   errorMsgEmail = "";
   iscontactError = true;
   contactErrorMsg = "";
+  minDate:string;
 
-  constructor(private route: ActivatedRoute, private router: Router, private dataService: LoginService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private dataService: LoginService) {
+
+    var now = new Date();
+    this.minDate= now.toISOString().substring(0,10);
+   }
 
   ngOnInit(): void {
     //this.customer.customerId = this.dataService.getCustomerCount() + 1;

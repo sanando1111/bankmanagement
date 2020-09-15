@@ -10,3 +10,8 @@
     float: right;
     width:500px;
 }
+.action{
+    top:500px;
+    float: left;
+    margin-left: 140px;
+}

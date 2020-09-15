@@ -1,7 +1,8 @@
 
+<div>
+<form (ngSubmit)="onSubmit()">
 <div class="container">
             <div class="col-lg-12">
-    <form (ngSubmit)="onSubmit()">
         <div class="form-group" class="align_left">
             <label for="name">Username</label>
             <input type="text" class="form-control" id="username" required [(ngModel)]="customer.username"
@@ -63,20 +64,25 @@
             <p class="error">{{contactErrorMsg}}</p>
         </div>
 
-        <div class="form-group" class="align-left">
+        <div class="form-group" class="align_left">
             <label for="account_type">Account type:</label>
             <select name="account_type" class="form-control" id="account_type" [(ngModel)]="customer.accountType">
                 <option value="salary">salary</option>
                 <option value="savings">savings</option>
             </select>
-        </div>
-        <div class="form-group" class="align-right">
-        <label>Date of birth:</label>
-        <input name="dob" type="date" [max]="minDate" class="form-control" [(ngModel)]="customer.dateOfBirth"/>
+            <p></p>
         </div>
 
-        <button type="submit" class="btn btn-success">Submit</button>
-        <button type="button" (click)="onCancel()">Cancel</button>
-    </form>
+        <div class="form-group" class="align_right">
+        <label for="date_of_birth">Date of birth:</label>
+        <input name="dob" type="date" [max]="minDate" class="form-control" [(ngModel)]="customer.dateOfBirth"/>
+        <p></p>
+        </div>
+    </div>
 </div>
+    <div class="action">
+        <button type="submit" >Submit</button>
+        <button type="button" (click)="onCancel()">Cancel</button>
+    </div>
+    </form>
 </div>
