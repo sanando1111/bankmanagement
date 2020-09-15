@@ -47,7 +47,9 @@ export class UpdateCustomerComponent implements OnInit {
   }
 
   onSubmit(): void {
+    if(!this.isEmailError && !this.iscontactError && !this.ispasswordError ){
     this.updateCustomer();
+    }
   }
 
   onCancel(): void {
