@@ -63,12 +63,16 @@
             <p class="error">{{contactErrorMsg}}</p>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" class="align-left">
             <label for="account_type">Account type:</label>
             <select name="account_type" class="form-control" id="account_type" [(ngModel)]="customer.accountType">
                 <option value="salary">salary</option>
                 <option value="savings">savings</option>
             </select>
+        </div>
+        <div class="form-group" class="align-right">
+        <label>Date of birth:</label>
+        <input name="dob" type="date" [max]="minDate" class="form-control" [(ngModel)]="customer.dateOfBirth"/>
         </div>
 
         <button type="submit" class="btn btn-success">Submit</button>
