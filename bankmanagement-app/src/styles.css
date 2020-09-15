@@ -12,3 +12,8 @@ button{
 .error{
     color:red;
 }
+label{
+    color:black;
+    font-size: 125%;
+    font-weight: 500;
+}
