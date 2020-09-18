@@ -1,0 +1,51 @@
+body {
+    background-color: lightblue;
+    color: black;
+  }
+  
+  /* On screens that are 992px wide or less, the background color is blue */
+  @media screen and (max-width: 992px) {
+    body {
+      background-color: blue;
+      color: white;
+    }
+  }
+  
+  /* On screens that are 600px wide or less, the background color is olive */
+  @media screen and (max-width: 600px) {
+    body {
+      background-color: olive;
+      color: white;
+    }
+  }
+  .panel{
+      width: 200px;
+      background-color: cadetblue;
+      height:500px;
+      float:left;
+  }
+  .home{
+      margin-left: 0px;
+      margin-top: 0%;
+      padding-top: 0rem;
+      display: block;
+      width: 200px !important;
+      font-size: 100%;
+      text-align: center;
+  }
+  .button_pos{
+     width: 200px !important;
+     background-color: cadetblue;
+  }
+  .button_pos:hover{
+        background-color: rgb(24, 131, 134);
+  }
+  .img{
+      background-color: lightblue;
+      float :right;
+      background-position-x: 0rem;
+      width:800px;
+      height:450px;
+      margin-top: 10px;
+      margin-right: 100px;
+  }

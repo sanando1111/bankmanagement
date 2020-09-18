@@ -1,48 +1,26 @@
 <html>
 <head>
-<style>
-body {
-  background-color: lightblue;
-  color: black;
-}
-
-/* On screens that are 992px wide or less, the background color is blue */
-@media screen and (max-width: 992px) {
-  body {
-    background-color: blue;
-    color: white;
-  }
-}
-
-/* On screens that are 600px wide or less, the background color is olive */
-@media screen and (max-width: 600px) {
-  body {
-    background-color: olive;
-    color: white;
-  }
-}
-</style>
 </head>
 <body>
-    <div>
-        <div>
-            <button (click) = 'onApplyLoan()'>Apply Loan</button>        
-        </div>
-    
-        <div>
-            <button (click) = 'onUpdateCustomer()'>Update Customer</button>        
-        </div>
-        <div>
-            <button (click) = 'onViewCustomer()'>View Customer</button>        
-        </div>
-        <div>
-            <button (click) = 'onLogout()'>Logout</button>        
-        </div>
-    
+  <div class="panel">
+    <div class="home">
+      <div class="button_pos">
+        <button class="button_pos" (click)='onApplyLoan()'>Apply Loan</button>
+      </div>
+      <div class="button_pos">
+        <button class="button_pos" (click)='onUpdateCustomer()'>Update Customer</button>
+      </div>
+      <div class="button_pos">
+        <button (click)='onViewCustomer()' class="button_pos">View Customer</button>
+      </div>
+      <div class="button_pos">
+        <button class="button_pos" (click)='onLogout()'>Logout</button>
+      </div>
     </div>
-
+  </div>
+  <div class="img">
+      <img class="img" src="../../assets/bank-building-outline-icon-isolated-elegant-thin-line-style-drawing-design-69787647-removebg-preview.png" alt="bank_image">
+  </div>
 </body>
+
 </html>
-
-
-
