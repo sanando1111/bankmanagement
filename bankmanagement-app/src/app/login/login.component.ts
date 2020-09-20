@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
 import { Customer } from '../customer';
+import { SocialUser } from 'angularx-social-login';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,9 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService, private router: Router) { }
 
   customer: Customer = new Customer();
+
+  user:SocialUser;
+  custData:any;
 
   ngOnInit(): void {
   }
@@ -36,6 +40,40 @@ export class LoginComponent implements OnInit {
    onRegisterCustomer(): void {
     this.router.navigate(['register']);
    }
+
+    onLoginFacebookSSO(): void {
+      console.log('SSO initiated');
+     // this.getData();
+     this.loginService.signInWithFB();
+    }
+   // const retCustomer=this.loginService.signInWithFB();
+
+
+
+    // retCustomer.customerId='R-200';
+    // this.router.navigate(['home', retCustomer.customerId]);
+  
+
+  async getData()
+  {
+
+    await this.loginService.signInWithFB().toPromise().then(data => {
+      this.user = data;
+    });
+    console.log("Feteched data:"+this.user);
+  }
+
+    // if (retCustomer != null) {
+    //   console.log(name + ' ' + retCustomer.name);
+    //   console.log('customer id:' + '' + retCustomer.customerId);
+    //   this.router.navigate(['home', retCustomer.customerId]);
+    // } 
+    // else {
+    //   // Error message invalid user.
+    //   //console.log(' Invalid user ');
+    //   alert('Invalid credential');
+    // }
+   
 
    
 

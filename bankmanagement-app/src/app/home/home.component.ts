@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Customer } from '../customer';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from '../login.service';
+import { SocialAuthService } from "angularx-social-login";
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit {
   id: string;
   customer: Customer = new Customer();
 
-  constructor(private route: ActivatedRoute, private router: Router, private dataService: LoginService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private dataService: LoginService,private authService: SocialAuthService) { }
 
   ngOnInit(): void {
     // tslint:disable-next-line:no-string-literal
@@ -29,6 +30,12 @@ export class HomeComponent implements OnInit {
   }
 
   onLogout(): void {
+    
+    // if(this.dataService.getLoggedIn()=='Y')
+    // {
+    //   //this is a SSO login needs to be cleared
+    //   this.authService.signOut();
+    // }
     this.router.navigate(['']);
   }
 
