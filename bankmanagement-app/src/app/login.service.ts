@@ -2,7 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Customer } from './customer';
-
+import { SocialAuthService } from "angularx-social-login";
+import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
+import { SocialUser } from "angularx-social-login";
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +15,13 @@ export class LoginService {
   private baseUrl = 'http://localhost:8080/serverApi'
   initialDeposit: number;
   accountHolderName: string;
+  user: SocialUser;
+  loggedIn: string;
+  cust:Customer;  
+    
 
-  constructor(private http: HttpClient) {
+
+  constructor(private http: HttpClient,private authService: SocialAuthService,private router: Router) {
   }
 
   customers: Customer[] = [
@@ -100,4 +108,61 @@ export class LoginService {
   getCustomerCount(): number {
     return this.customers.length;
   }
+
+  
+ 
+  signInWithFB(): any {
+    //this.isInitialized().subscribe(e=>console.log(e));
+    this.authService.initialized=true;
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+    
+     this.authService.authState.subscribe((user) => {
+      this.user = user;
+     this.loggedIn = 'Y';
+      console.log(this.user);
+      this.router.navigate(['home', 'R-200']);
+      //hard coded the below part since it is bank management system and user Social UserId does not exist on the system.
+     },error => {
+      console.log('Error occured');
+    }
+    
+    
+    
+    ).add(() => {
+      // Do some work after complete...
+
+      this.router.navigate(['home', 'R-200']);
+    });
+  
+    // if(this.loggedIn='Y')
+    // {
+    //   //Hard Coded the userId
+    //   this.router.navigate(['home', 'R-200']);
+
+    // }
+    
+  }
+ 
+  signOut(): void {
+    this.authService.signOut();
+  }
+  getLoggedIn(): string
+  {
+    return this.loggedIn;
+  }
+  
+
+   isInitialized(): Observable<boolean> {
+    return new Observable((observer) => {
+      if (this.authService.initialized) {
+        observer.next(this.authService.initialized);
+        observer.complete();
+        observer.unsubscribe();
+      } else {
+        observer.next(this.authService.initialized);
+      }
+    });
+
+  
+}
 }
