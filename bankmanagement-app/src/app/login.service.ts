@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Customer } from './customer';
-import { SocialAuthService } from "angularx-social-login";
-import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
-import { SocialUser } from "angularx-social-login";
+//import { SocialAuthService } from "angularx-social-login";
+import { FacebookLoginProvider, GoogleLoginProvider,SocialUser,SocialAuthService } from "angularx-social-login";
+//import { SocialUser } from "angularx-social-login";
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -124,13 +124,8 @@ export class LoginService {
       //hard coded the below part since it is bank management system and user Social UserId does not exist on the system.
      },error => {
       console.log('Error occured');
-    }
-    
-    
-    
-    ).add(() => {
+    }).add(() => {
       // Do some work after complete...
-
       this.router.navigate(['home', 'R-200']);
     });
   
