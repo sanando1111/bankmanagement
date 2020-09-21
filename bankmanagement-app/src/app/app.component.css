@@ -1,10 +1,11 @@
 h1{
     color:white;
     text-align: center;
-    padding: 10px;
+    padding: 30px;
+    margin-bottom: 0rem;
 }
 .app_style{
-    background-color: lightblue;
+    /* background-color: lightblue; */
 }
 .header_style{
     background-color: darkblue;

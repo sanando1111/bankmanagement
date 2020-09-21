@@ -2,8 +2,8 @@
 <form [formGroup]="form" (ngSubmit)="submit()">         
         <div class="form-group">
            
-            <label>Loan Type:</label>
-            <select formControlName="loanType"  (change)="onOptionsSelected(form.get('loanType').value)" >
+            <br><label>Loan Type:</label><br>
+            <select class="apply_loan" formControlName="loanType"  (change)="onOptionsSelected(form.get('loanType').value)" >
                 <option disabled>Select Type</option>
                 <option value="personal">Personal</option>
                 <option value="housing">Housing</option>
@@ -14,26 +14,26 @@
           </mat-error>
 
             <br/>
-            <label>Loan Amount:</label>
-            <input type="text" formControlName="loanAmount" name="loanAmount" >
+            <br><label>Loan Amount:</label><br>
+            <input class="apply_loan" type="text" formControlName="loanAmount" name="loanAmount" >
             <mat-error *ngIf="form.get('loanAmount').hasError('required')">
                 <small class="error"> *Loan amount is required.</small> 
           </mat-error>
             <br/>          
-          <label>Loan Issue date:</label>
-    <input name="issueDate" type="date" formControlName="issueDate" [min]="minDate"/>
+          <br><label>Loan Issue date:</label><br>
+    <input class="apply_loan" name="issueDate" type="date" formControlName="issueDate" [min]="minDate"/>
          
           <mat-error *ngIf="form.get('issueDate').hasError('required')">
             <small class="error"> *Loan issue date is required.</small>             
           </mat-error>
 
           <br/>
-          <label>Rate of Interest:</label>
-          <input type="text" formControlName="rateOfInterest" value={{roi}}>
+          <br><label>Rate of Interest:</label><br>
+          <input class="apply_loan" type="text" formControlName="rateOfInterest" value={{roi}}>
           <br/>
 
-             <label>Duration Of the Loan:</label>
-            <select formControlName="loanDuration">
+           <br><label>Duration Of the Loan:</label><br>
+            <select class="apply_loan" formControlName="loanDuration">
                 <option disabled>Select Duration</option>
                 <option value="5">5</option>
                 <option value="10">10</option>
@@ -48,14 +48,14 @@
             <div>
                 <ng-container *ngIf="form.get('loanType').value==='educational'" class="form-control"> 
                     <div>
-                        <label>Course fee:</label>
-                        <input type="text" formControlName="courseFee"  >
+                       <br><label>Course fee:</label><br>
+                        <input class="apply_loan" type="text" formControlName="courseFee"  >
                         <mat-error *ngIf="form.get('courseFee').hasError('required')">
                             <small class="error"> *Course fee is required.</small>                           
                       </mat-error>
                         <br/>
-                        <label>Course:</label>
-                      <select formControlName="courseName" >
+                       <br><label>Course:</label><br>
+                      <select class="apply_loan" formControlName="courseName" >
                     <option disabled>Course Name</option>
                     <option value="be">B.E</option>
                     <option value="btech">B.Tech</option>
@@ -64,8 +64,8 @@
                     <small class="error"> *Course name is required.</small>
               </mat-error>
                 <br/>
-                <label>Father name:</label>
-                        <input type="text" formControlName="fatherName" >
+               <br><label>Father name:</label><br>
+                        <input class="apply_loan" type="text" formControlName="fatherName" >
                         <mat-error *ngIf="form.get('fatherName').hasError('required')">
                             <small class="error"> *Father name is required.</small>
                       </mat-error>
@@ -79,13 +79,13 @@
         <div>
             <ng-container *ngIf="form.get('loanType').touched && form.get('loanType').value==='personal'||form.get('loanType').value==='housing'">
                 <div>
-                    <label>Annual Income:</label>
+                   <br><label>Annual Income:</label>
                     <input type="text" formControlName="annualIncome" required >
                     <mat-error *ngIf="form.get('annualIncome').hasError('required')">
                       <small class="error"> *Annual is required.</small>
                 </mat-error>
                     <br/>
-                    <label>Company Name:</label>
+                    <br><label>Company Name:</label>
                     <input type="text" formControlName="companyName" required >
                     <mat-error *ngIf="form.get('companyName').hasError('required')">
                       <small class="error"> *Company name is required.</small>
