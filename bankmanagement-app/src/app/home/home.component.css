@@ -41,7 +41,7 @@ body {
         background-color: rgb(24, 131, 134);
   }
   .img{
-      background-color: lightblue;
+      /* background-color: lightblue; */
       float :right;
       background-position-x: 0rem;
       width:800px;
