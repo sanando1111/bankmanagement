@@ -30,6 +30,9 @@ import {
   FacebookLoginProvider,
   AmazonLoginProvider
 } from 'angularx-social-login';
+import { LoggedInuserAuthGuardService } from 'src/shared/logged-inuser-auth-guard.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import {AuthInterceptorService} from '../shared/auth-interceptor.service';
 
 
 @NgModule({
@@ -76,7 +79,7 @@ import {
         }       
       ],
     } as SocialAuthServiceConfig,
-  }],
+  },LoggedInuserAuthGuardService,{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,12 +6,13 @@ import { HomeComponent } from './home/home.component';
 import { ViewCustomerComponent } from './view-customer/view-customer.component';
 import { UpdateCustomerComponent } from './update-customer/update-customer.component';
 import { RegisterCustomerComponent } from './register-customer/register-customer.component';
+import { LoggedInuserAuthGuardService } from '../shared/logged-inuser-auth-guard.service';
 
 //const routes: Routes = [];
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'home/:id', component: HomeComponent},
+  { path: 'home/:id', component: HomeComponent,canActivate: [LoggedInuserAuthGuardService]},
   { path: 'applyloan/:id', component: ApplyloanComponent},
   { path: 'view/:id', component: ViewCustomerComponent },
   { path: 'update/:id', component: UpdateCustomerComponent },

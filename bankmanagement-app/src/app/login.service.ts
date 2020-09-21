@@ -78,6 +78,7 @@ export class LoginService {
     // in real time there will be separate service call to the given service URL
     console.log('we are in validateLogin Function');
     for (const c of this.customers) {
+      this.loggedIn='Y';
       if (c.username === customer.username && c.password === customer.password) { return c; }
     }
     return null;
