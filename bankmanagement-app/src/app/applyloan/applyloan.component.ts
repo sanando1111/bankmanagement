@@ -7,6 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { Customer } from '../customer';
 import { ActivatedRoute, Router } from '@angular/router';
 import { validateVerticalPosition } from '@angular/cdk/overlay';
+
 @Component({
   selector: 'app-applyloan',
   templateUrl: './applyloan.component.html',
@@ -24,7 +25,7 @@ export class ApplyloanComponent implements OnInit {
   minDate:string;
   
 
-  constructor(private loanService: ApplyLoanService, private loginService: LoginService,private route: ActivatedRoute, private router: Router) {
+  constructor(private loanService: ApplyLoanService, private loginService: LoginService,private route: ActivatedRoute, private router: Router,) {
 
     var now = new Date();
     this.minDate= now.toISOString().substring(0,10);
