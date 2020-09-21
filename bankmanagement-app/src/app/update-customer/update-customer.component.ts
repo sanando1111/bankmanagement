@@ -46,8 +46,24 @@ export class UpdateCustomerComponent implements OnInit {
     this.router.navigate(['/home', this.cId]);
   }
 
+  areAllFieldsInserted(): Boolean {
+    let check =false;
+    if(this.customer.username && this.customer.password && this.customer.name 
+      && this.customer.address && this.customer.email && this.customer.gender
+      && this.customer.maritalStatus && this.customer.contactNumber 
+      && this.customer.accountType && this.customer.dateOfBirth){
+        check=true;
+      }
+      return check;
+  }
+
+
   onSubmit(): void {
-    if(!this.isEmailError && !this.iscontactError && !this.ispasswordError ){
+    console.log(this.areAllFieldsInserted());
+    console.log(this.isEmailError);
+    console.log(this.iscontactError);
+    console.log(this.ispasswordError);
+    if(this.areAllFieldsInserted() && !this.isEmailError && !this.iscontactError && !this.ispasswordError ){
     this.updateCustomer();
     }
   }
