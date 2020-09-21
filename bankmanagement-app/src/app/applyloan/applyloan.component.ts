@@ -88,7 +88,34 @@ export class ApplyloanComponent implements OnInit {
 
       for (let prop in formValue) {
       if (!formValue[prop]) {
-      delete formValue[prop];
+      //delete formValue[prop];
+      if(formValue["loanType"]==""||formValue["loanAmount"]==""||formValue["loanDuration"]==""||formValue["issueDate"]=="")
+      {
+        window.alert("You need to fill the required fields!");
+        return;
+      }
+      else{
+        if(formValue["loanType"]=="personal"||formValue["loanType"]=="housing")
+        {
+          if(formValue["annualIncome"]==""||formValue["companyName"]=="")
+          {
+            window.alert("You need to fill the required fields!");
+            return;
+          }
+        }
+        else{
+          if(formValue["loanType"]=="educational")
+          {
+            if(formValue["courseFee"]==""||formValue["courseName"]==""||formValue["fatherName"]=="")
+            {
+              window.alert("You need to fill the required fields!");
+              return;
+            }
+          }
+
+        }
+
+      }
       }
      }
     
