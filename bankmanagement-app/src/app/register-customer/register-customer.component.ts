@@ -21,6 +21,7 @@ export class RegisterCustomerComponent implements OnInit {
   iscontactError = true;
   contactErrorMsg = "";
   minDate:string;
+  blankFieldError = "";
 
   constructor(private route: ActivatedRoute, private router: Router, private dataService: LoginService) {
 
@@ -63,8 +64,11 @@ export class RegisterCustomerComponent implements OnInit {
       this.customer.accountNumber = this.accountNum;
       console.log('register component customerId:' + this.customer.customerId);
       console.log('register component accountNumber:' + this.accountNum);
+      this.blankFieldError="";
       this.showalert(this.customer.customerId);
       this.registerCustomer();
+    }else{
+      this.blankFieldError="Please enter all the fields";
     }
   }
 

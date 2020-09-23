@@ -34,10 +34,10 @@ export class LoginService {
       email: 'ac@abc.com',
       gender: 'Male',
       maritalStatus: 'Single',
-      contactNumber: '1111',
-      dateOfBirth: null,
+      contactNumber: '1111111111',
+      dateOfBirth: new Date(Date.now()),
       accountNumber: 1234567899876543,
-      accountType: null,
+      accountType: "Salary",
       initialDepositAmount: 500.25
     },
     {

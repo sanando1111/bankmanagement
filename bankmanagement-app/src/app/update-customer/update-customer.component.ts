@@ -14,13 +14,14 @@ export class UpdateCustomerComponent implements OnInit {
   customer: Customer = new Customer();
   cId: string;
   accountNum: number;
-  ispasswordError: Boolean = true;
+  ispasswordError: Boolean = false;
   errorMsgPassword: String = "";
-  isEmailError = true;
+  isEmailError = false;
   errorMsgEmail = "";
-  iscontactError = true;
+  iscontactError = false;
   contactErrorMsg = "";
   minDate:string;
+  blankFieldError="";
 
   constructor(private route: ActivatedRoute, private router: Router, private dataService: LoginService) {
 
@@ -64,7 +65,10 @@ export class UpdateCustomerComponent implements OnInit {
     console.log(this.iscontactError);
     console.log(this.ispasswordError);
     if(this.areAllFieldsInserted() && !this.isEmailError && !this.iscontactError && !this.ispasswordError ){
-    this.updateCustomer();
+      this.blankFieldError="";
+      this.updateCustomer();
+    }else{
+      this.blankFieldError="Please enter all the fields";
     }
   }
 

@@ -75,6 +75,7 @@
     <label for="date_of_birth">Date of birth:</label>
     <input name="dob" type="date" [max]="minDate" class="form-control" [(ngModel)]="customer.dateOfBirth"/>
 </div>
+<p class="error">{{blankFieldError}}</p>
 
 <button type="submit">Submit</button>
 <button type="button" (click)="onCancel()">Cancel</button>
