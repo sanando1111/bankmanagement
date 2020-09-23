@@ -56,6 +56,10 @@ export class ApplyloanComponent implements OnInit {
 
   }
 
+  onCancel(): void {
+    this.router.navigate(['/home', this.id]);
+  } 
+
   async getInterestRates(loanType: string) {
     await this.loanService.getInterestRates().toPromise().then(data => {
       this.response = data
