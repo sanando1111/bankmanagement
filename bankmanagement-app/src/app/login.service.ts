@@ -31,7 +31,7 @@ export class LoginService {
       username: 'Aritra',
       password: 'Admin@123',
       address: 'PlotNo-1, First Main Road, Salt Lake Calcutta',
-      email: 'ac@abc.com',
+      email: 'ac@gmail.com',
       gender: 'Male',
       maritalStatus: 'Single',
       contactNumber: '1111111111',
@@ -119,8 +119,24 @@ export class LoginService {
      this.authService.authState.subscribe((user) => {
       this.user = user;
      this.loggedIn = 'Y';
-      console.log(this.user);
-      this.router.navigate(['home', 'R-200']);
+      console.log(this.user.email);
+      console.log(this.customers);
+      let res = {};
+       this.customers.forEach(customer => {
+        if(customer.email === this.user.email){
+            res =[
+              true,
+              customer.customerId
+            ]
+          }   
+      })
+      console.log(res);
+      if(res[0] ===true){
+      this.router.navigate(['home', res[1]]);
+      }
+      else{
+        alert("No account found with this mail id");
+      }
       //hard coded the below part since it is bank management system and user Social UserId does not exist on the system.
      },error => {
       console.log('Error occured');
@@ -131,7 +147,7 @@ export class LoginService {
     ).add(() => {
       // Do some work after complete...
 
-      this.router.navigate(['home', 'R-200']);
+      this.router.navigate(['home', 'R-100']);
     });
   
     // if(this.loggedIn='Y')
