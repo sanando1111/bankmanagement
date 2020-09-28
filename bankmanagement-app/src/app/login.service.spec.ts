@@ -55,4 +55,9 @@ describe('LoginService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it("Test 1" , () => {
+    expect(service.getCustomerCount()).toEqual(3);
+
+  });
 });

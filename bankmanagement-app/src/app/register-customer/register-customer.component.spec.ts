@@ -57,11 +57,15 @@ describe('RegisterCustomerComponent', () => {
     let component = fixture.debugElement.componentInstance;
     expect(component).toBeTruthy();
   });
-  it('count no of input boxes', () => {
+  it('Labels should contain username', () => {
     let fixture = TestBed.createComponent(RegisterCustomerComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('input').count).toEqual(10);
-
+    expect(compiled.querySelector('label').textContent).toContain('Username');
   })
+  it('Labels should contain username', () => {
+    let fixture = TestBed.createComponent(RegisterCustomerComponent);
+    let component = fixture.debugElement.componentInstance;
+  })
+
 });
