@@ -63,9 +63,10 @@ describe('RegisterCustomerComponent', () => {
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('label').textContent).toContain('Username');
   })
-  it('Labels should contain username', () => {
+  it('Check if submit button is present or not', () => {
     let fixture = TestBed.createComponent(RegisterCustomerComponent);
-    let component = fixture.debugElement.componentInstance;
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('button').textContent).toContain('Submit');
   })
 
 });

@@ -56,5 +56,16 @@ describe('LoginComponent', () => {
     let component = fixture.debugElement.componentInstance;
     expect(component).toBeTruthy();
   });
+  it('Check if login button is present or not', () => {
+    let fixture = TestBed.createComponent(LoginComponent);
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('div')).toHaveClass('container')
+  })
+  it('Check if register button is present or not', () => {
+    let fixture = TestBed.createComponent(LoginComponent);
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('button').textContent).toContain('Login');
+  })
+
 });
 

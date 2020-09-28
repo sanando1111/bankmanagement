@@ -77,4 +77,8 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should create', () => {
+    let compiled = fixture.nativeElement;
+    expect(compiled.querySelector('img')).toHaveClass('img');
+  });
 });
