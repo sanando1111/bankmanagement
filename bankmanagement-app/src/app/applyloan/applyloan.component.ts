@@ -56,6 +56,10 @@ export class ApplyloanComponent implements OnInit {
 
   }
 
+  onCancel(): void {
+    this.router.navigate(['/home', this.id]);
+  } 
+
   async getInterestRates(loanType: string) {
     await this.loanService.getInterestRates().toPromise().then(data => {
       this.response = data
@@ -80,9 +84,25 @@ export class ApplyloanComponent implements OnInit {
     //'picker':new FormControl('',Validators.required)
   });
   
-  
+  ifFieldisEmpty(formvalue){
+    let flag=true;
+    if(formvalue.loanType === "personal" || formvalue.loanType === "housing" ){
+      if(formvalue.annualIncome && formvalue.companyName && formvalue.issueDate
+        && formvalue.loanAmount && formvalue.loanDuration){
+          flag=false;
+        }
+    }
+    if(formvalue.loanType ==="educational"){
+      if(formvalue.courseFee && formvalue.courseName && formvalue.fatherName
+        && formvalue.issueDate && formvalue.loanAmount && formvalue.loanDuration){
+          flag=false;
+        }
+    }
+    return flag;
+  }
 
   submit() {
+    console.log(this.customer);
 
     let formValue = { ...this.form.value };
 
@@ -124,7 +144,9 @@ export class ApplyloanComponent implements OnInit {
     // after the decimal.
       console.log(formValue);
       console.log(this.form.valid);
+      if(!this.ifFieldisEmpty(formValue)){
       this.generateAlert();
+      }
     
     
 

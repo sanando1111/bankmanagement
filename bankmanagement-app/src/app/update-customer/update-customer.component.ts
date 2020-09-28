@@ -14,13 +14,14 @@ export class UpdateCustomerComponent implements OnInit {
   customer: Customer = new Customer();
   cId: string;
   accountNum: number;
-  ispasswordError: Boolean = true;
+  ispasswordError: Boolean = false;
   errorMsgPassword: String = "";
-  isEmailError = true;
+  isEmailError = false;
   errorMsgEmail = "";
-  iscontactError = true;
+  iscontactError = false;
   contactErrorMsg = "";
   minDate:string;
+  blankFieldError="";
 
   constructor(private route: ActivatedRoute, private router: Router, private dataService: LoginService) {
 
@@ -46,9 +47,28 @@ export class UpdateCustomerComponent implements OnInit {
     this.router.navigate(['/home', this.cId]);
   }
 
+  areAllFieldsInserted(): Boolean {
+    let check =false;
+    if(this.customer.username && this.customer.password && this.customer.name 
+      && this.customer.address && this.customer.email && this.customer.gender
+      && this.customer.maritalStatus && this.customer.contactNumber 
+      && this.customer.accountType && this.customer.dateOfBirth){
+        check=true;
+      }
+      return check;
+  }
+
+
   onSubmit(): void {
-    if(!this.isEmailError && !this.iscontactError && !this.ispasswordError ){
-    this.updateCustomer();
+    console.log(this.areAllFieldsInserted());
+    console.log(this.isEmailError);
+    console.log(this.iscontactError);
+    console.log(this.ispasswordError);
+    if(this.areAllFieldsInserted() && !this.isEmailError && !this.iscontactError && !this.ispasswordError ){
+      this.blankFieldError="";
+      this.updateCustomer();
+    }else{
+      this.blankFieldError="Please enter all the fields";
     }
   }
 

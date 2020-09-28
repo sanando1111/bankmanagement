@@ -17,3 +17,8 @@
     display: flex;
     justify-content: space-between;
 }
+.blank_field{
+    margin-left: 150px;
+    color: red;
+    font-style: italic;
+}
