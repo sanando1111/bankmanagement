@@ -61,7 +61,7 @@ describe('RegisterCustomerComponent', () => {
     let fixture = TestBed.createComponent(RegisterCustomerComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('input').length).toEqual(10);
+    expect(compiled.querySelector('input').count).toEqual(10);
 
   })
 });
