@@ -62,4 +62,12 @@ describe('ApplyloanComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('select should have apply_loan class', () => {
+    let compiled = fixture.nativeElement;
+    expect(compiled.querySelector('select')).toHaveClass('apply_loan');
+  });
+  it('it should have a submit button', () => {
+    let compiled = fixture.nativeElement;
+    expect(compiled.querySelector('button').textContent).toContain('Submit');
+  });
 });

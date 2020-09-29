@@ -58,8 +58,17 @@ describe('ViewCustomerComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('Button name should be Return', () => {
+    let fixture = TestBed.createComponent(ViewCustomerComponent);
+    let component = fixture.nativeElement;
+    expect(component.querySelector('button').textContent).toContain('Return');
+  });
+  it('Div should have container class', () => {
+    let fixture = TestBed.createComponent(ViewCustomerComponent);
+    let component = fixture.nativeElement;
+    expect(component.querySelector('div')).toHaveClass('container');
   });
 });

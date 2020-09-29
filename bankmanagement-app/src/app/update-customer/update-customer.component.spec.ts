@@ -57,4 +57,14 @@ describe('UpdateCustomerComponent', () => {
     let component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
+  it('div should have  class container', () => {
+    let fixture = TestBed.createComponent(UpdateCustomerComponent);
+    let component = fixture.nativeElement;
+    expect(component.querySelector('div')).toHaveClass('container');
+  });
+  it('Should have a button submit', () => {
+    let fixture = TestBed.createComponent(UpdateCustomerComponent);
+    let component = fixture.nativeElement;
+    expect(component.querySelector('button').textContent).toContain('Submit');
+  });
 });
