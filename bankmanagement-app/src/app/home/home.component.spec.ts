@@ -81,4 +81,8 @@ describe('HomeComponent', () => {
     let compiled = fixture.nativeElement;
     expect(compiled.querySelector('img')).toHaveClass('img');
   });
+  it('Button should have class button_pos', () => {
+    let compiled = fixture.nativeElement;
+    expect(compiled.querySelector('button')).toHaveClass('button_pos');
+  });
 });
