@@ -22,6 +22,7 @@ export class RegisterCustomerComponent implements OnInit {
   contactErrorMsg = "";
   minDate:string;
   blankFieldError = "";
+  registrationSuccessfull =""
 
   constructor(private route: ActivatedRoute, private router: Router, private dataService: LoginService) {
 
@@ -40,7 +41,7 @@ export class RegisterCustomerComponent implements OnInit {
     this.dataService.customers.push(this.customer);
     this.customer = new Customer();
     // this.router.navigate(['/home', this.customer.customerId]);
-    this.router.navigate(['login']);
+   // this.router.navigate(['login']);
   }
 
   areAllFieldsInserted(): Boolean {
@@ -55,6 +56,7 @@ export class RegisterCustomerComponent implements OnInit {
   }
 
   onSubmit(): void {
+    this.blankFieldError="";
     console.log(this.areAllFieldsInserted());
     console.log(this.iscontactError, this.isEmailError, this.ispasswordError)
     if (this.areAllFieldsInserted() && !this.iscontactError && !this.isEmailError && !this.ispasswordError) {
@@ -69,6 +71,7 @@ export class RegisterCustomerComponent implements OnInit {
       this.registerCustomer();
     }else{
       this.blankFieldError="Please enter all the fields";
+      this.registrationSuccessfull="";
     }
   }
 
@@ -77,7 +80,7 @@ export class RegisterCustomerComponent implements OnInit {
   } 
 
   showalert(message: string) {
-    alert('Registered successfully,customer id:' + message);
+    this.registrationSuccessfull= 'Registered successfully,customer id:' + message;
   }
 
   onChangename(event) {

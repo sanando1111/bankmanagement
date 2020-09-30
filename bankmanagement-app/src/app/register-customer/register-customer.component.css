@@ -22,3 +22,8 @@
     color: red;
     font-style: italic;
 }
+.success{
+    color: green;
+    font-style: italic;
+    margin-left: 150px;
+}
